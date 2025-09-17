@@ -35,12 +35,11 @@ class ViewController: UIViewController
         
         if let alarm = alarmTime
         {
-            let calendar = Calendar.current
+            formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            let current = formatter.string(from: currentDate)
+            let alarm = formatter.string(from: alarm)
             
-            let currentComponents = calendar.dateComponents([.year, .month, .day], from: currentDate)
-            let alarmComponents = calendar.dateComponents([.year, .month, .day], from: alarm)
-            
-            if currentComponents == alarmComponents
+            if current == alarm
             {
                 view.backgroundColor = UIColor.red
             }
